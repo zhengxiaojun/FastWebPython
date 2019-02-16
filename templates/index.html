@@ -90,19 +90,38 @@
 <script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap-transition.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static',filename='js/toastr.min.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap-paginator.min.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static',filename='js/ace.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static',filename='js/python.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static',filename='js/text.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static',filename='js/ext-language_tools.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static',filename='js/mode-python.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static',filename='js/mode-snippets.js') }}"></script>
-<script type="text/javascript" src="{{ url_for('static',filename='js/theme-monokai.js') }}"></script>
+
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/ace.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/python.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/text.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/ext-language_tools.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/ext-error_marker.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/ext-options.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/ext-searchbox.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/ext-spellcheck.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/ext-beautify.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/ext-keybinding_menu.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/ext-linking.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/ext-modelist.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/ext-rtl.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/ext-settings_menu.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/ext-split.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/ext-static_highlight.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/ext-statusbar.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/ext-textarea.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/ext-themelist.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/ext-whitespace.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/mode-python.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/mode-snippets.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ace/1.4.2/theme-monokai.js') }}"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {
         ace.require("ace/ext/language_tools");
         editor = ace.edit("code");
         editor.setOptions({
+            highlightActiveLine: true,
+            highlightSelectedWord: true,
             enableBasicAutocompletion: true,
             enableSnippets: true,
             enableLiveAutocompletion: true

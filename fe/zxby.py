@@ -17,7 +17,7 @@ EXEC = sys.executable
 # 获取python版本
 def get_version():
     v = sys.version_info
-    version = "python %s.%s" % (v.major, v.minor)
+    version = "python %s.%s.%s" % (v.major, v.minor, v.micro)
     return version
 
 
