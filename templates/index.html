@@ -91,11 +91,24 @@
 <script type="text/javascript" src="{{ url_for('static',filename='js/toastr.min.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static',filename='js/bootstrap-paginator.min.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static',filename='js/ace.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/python.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/text.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/ext-language_tools.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/mode-python.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/mode-snippets.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/theme-monokai.js') }}"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {
+        ace.require("ace/ext/language_tools");
         editor = ace.edit("code");
+        editor.setOptions({
+            enableBasicAutocompletion: true,
+            enableSnippets: true,
+            enableLiveAutocompletion: true
+        });
         editor.setTheme("ace/theme/tomorrow_night_blue");
+//        editor.setTheme("ace/theme/monokai");
         editor.session.setMode("ace/mode/python");
         editor.getSession().setUseWrapMode(true);      //设置代码折叠
         editor.setHighlightActiveLine(true);   // 设置高亮
