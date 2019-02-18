@@ -2,10 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import os, sys, subprocess, tempfile, time, io
-import json
+from flask import jsonify
 
 # 创建临时文件夹,返回临时文件夹路径
-# TempFile = tempfile.mkdtemp(suffix='_test', prefix='python_')
 TempFile = os.path.dirname(os.path.realpath(__file__)) + "/tmp"
 
 # 文件名
@@ -35,7 +34,6 @@ def write_file(pyname, code, version):
             f.write(unicode(code, "utf-8"))
         if version == 3:
             f.write(str(code, encoding='utf-8'))
-    # print('file path: %s' % fpath)
     return fpath
 
 
@@ -73,11 +71,12 @@ def main(code):
             os.remove(fpath)
         except Exception as e:
             exit(1)
-    if ver == 2:
-        r = json.dumps(r, ensure_ascii=False, indent=4, encoding="utf-8")
-    if ver == 3:
-        r = json.dumps(r, ensure_ascii=False, indent=4)
-    return r
+    # if ver == 2:
+    #     r = json.dumps(r, ensure_ascii=False, indent=4, encoding="utf-8")
+    # if ver == 3:
+    #     r = json.dumps(r, ensure_ascii=False, indent=4)
+
+    return jsonify(r)
 
 
 if __name__ == '__main__':

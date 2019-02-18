@@ -2,7 +2,8 @@
 
 from fe import app
 from flask import render_template, request, Response
-from .zxby import *
+from .common import *
+import json
 
 
 def Response_headers(content):
@@ -12,35 +13,24 @@ def Response_headers(content):
 
 
 @app.route('/')
-def hello_world():
-    return Response_headers('hello world!!!')
-
-
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         code = request.values.get('code', '')
+        # code = request.form['code']
         if code == None or code == "":
             jsondata = {
                 "output": "请输入代码",
                 "status": "Success",
                 "version": get_version()
             }
-            jsondata = json.dumps(jsondata)
+            jsondata = jsonify(jsondata)
         else:
             jsondata = main(code.encode('utf-8'))
 
         return jsondata
 
     return render_template('index.html', title=u'Python在线运行')
-
-
-@app.route('/run', methods=['POST'])
-def run():
-    if request.method == 'POST' and request.form['code']:
-        code = request.form['code']
-        jsondata = main(code)
-        return Response_headers(str(jsondata))
 
 
 @app.errorhandler(403)
